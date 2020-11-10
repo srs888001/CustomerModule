@@ -1,0 +1,32 @@
+//module OtherFile [system] {
+//    header "Header.h"
+//    export *
+//}
+
+module OtherFile {
+    
+    // c file
+    module CTest {
+        header "CTest.h"
+        header "CPlusTest.hpp"
+        
+        export *
+    }
+    
+    umbrella "Subs"
+    export *
+//    module * { export * }
+    
+    // oc file
+    module OCTest {
+        requires objc
+        header "OCTest.h"
+        export *
+
+        umbrella "Subs/OCSubs" // 单独把 Subs 中的 oc 文件, 单独列出来, 否则会编译失败
+        module * { export * }
+    }
+}
+
+
+

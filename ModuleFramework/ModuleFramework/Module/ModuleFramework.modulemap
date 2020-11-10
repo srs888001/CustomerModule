@@ -1,0 +1,31 @@
+
+framework module ModuleFramework {
+    explicit module OtherFile {
+    
+        // c file
+        module CTest {
+            header "CTest.h"
+            link "CTest"
+            export *
+        }
+        
+        module Subs {
+            header "CPlusSubs.hpp"
+            link "Subs"
+            export *
+        }
+        
+        // oc file
+        module OCTest {
+            requires objc
+            header "OCTest.h"
+            header "OCSubs.h"
+            
+            link "OCTest"
+            export *
+        }
+    }
+}
+
+
+
